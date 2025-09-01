@@ -1,7 +1,7 @@
 # 📘 MikroTik Manager
 
 Aplicación web desarrollada en **PHP + MySQL** con frontend en **LeafletJS + JavaScript** para la gestión y monitoreo de routers MikroTik vía  **REST API RouterOS** .
-
+https://deepwiki.com/flavioGonz/Mikrotik-Manager
 ---
 
 ## 🚀 Visión General
@@ -196,3 +196,4 @@ Configurado cada 5 minutos en Windows:
 * Datos en **MySQL** y estado en  **JSON cache** .
 * Soporta **import/export** en JSON.
 * Arquitectura modular: fácil extender tanto **backend (api/)** como  **frontend (pestañas, UI)** .
+
