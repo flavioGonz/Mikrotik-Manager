@@ -1,0 +1,78 @@
+[09:03:58] === Inicio verificación REST ===
+[09:03:58] id=1 de350d823c03.sn.mynetname.net:8333 http -> OK | RB951G-2HnD | v7.19.4 (stable) | 13h51m11s | cpu=4% | arp=0
+[09:04:01] REST FAIL id=5 host=192.168.99.1 : HTTP error: Failed to connect to 192.168.99.1 port 8333 after 2047 ms: Couldn't connect to server => ping=OK
+[09:04:01] id=5 192.168.99.1:8333 http -> OK
+[09:04:04] id=8 d8560f8cc6a4.sn.mynetname.net:8333 http -> OK | RB1100Dx4 | v7.16 (stable) | 6w1d48m35s | cpu=5% | arp=2743
+[09:04:05] id=15 cc210c93b0ab.sn.mynetname.net:8333 http -> OK | RB750Gr3 | v7.19.4 (stable) | 3w3d13h14m41s | cpu=0% | arp=289
+[09:04:09] id=16 578204f18f4e.sn.mynetname.net:8333 http -> OK | RB2011UiAS | v7.19.4 (stable) | 14h8m13s | cpu=7% | arp=48
+[09:04:09] id=17 179.27.94.154:8333 http -> OK | L009UiGS-2HaxD | v7.19.4 (stable) | 14h57m52s | cpu=8% | arp=169
+[09:04:10] id=19 de350d823c03.sn.mynetname.net:8333 http -> OK | RB951G-2HnD | v7.19.4 (stable) | 13h51m22s | cpu=6% | arp=0
+[09:04:12] REST FAIL id=20 host=192.168.99.1 : HTTP error: Failed to connect to 192.168.99.1 port 8333 after 2044 ms: Couldn't connect to server => ping=OK
+[09:04:12] id=20 192.168.99.1:8333 http -> OK
+[09:04:16] id=21 d8560f8cc6a4.sn.mynetname.net:8333 http -> OK | RB1100Dx4 | v7.16 (stable) | 6w1d48m47s | cpu=5% | arp=2743
+[09:04:18] REST FAIL id=22 host=2f7a0121f1af.sn.mynetname.net : HTTP error: Failed to connect to 2f7a0121f1af.sn.mynetname.net port 8333 after 2080 ms: Couldn't connect to server => ping=OK
+[09:04:18] id=22 2f7a0121f1af.sn.mynetname.net:8333 http -> OK
+[09:04:21] id=23 cc210c93b0ab.sn.mynetname.net:8333 http -> OK | RB750Gr3 | v7.19.4 (stable) | 3w3d13h14m56s | cpu=2% | arp=289
+[09:04:26] id=24 578204f18f4e.sn.mynetname.net:8333 http -> OK | RB2011UiAS | v7.19.4 (stable) | 14h8m29s | cpu=2% | arp=48
+[09:04:27] id=25 179.27.94.154:8333 http -> OK | L009UiGS-2HaxD | v7.19.4 (stable) | 14h58m9s | cpu=6% | arp=169
+[09:04:28] id=26 e7e70ec8193a.sn.mynetname.net:8333 http -> OK | RB3011UiAS | v7.19 (stable) | 12w4d18h11m19s | cpu=38% | arp=358
+[09:04:28] === Fin: total=14 OK=14 FAIL=0 ===
+[11:29:15] === Inicio verificación REST ===
+[11:32:15] === Inicio verificación REST ===
+[11:32:16] id=1 de350d823c03.sn.mynetname.net:8333 http -> OK | RB951G-2HnD | v7.19.4 (stable) | 16h19m28s | cpu=12% | arp=0
+[11:32:18] REST FAIL id=5 host=192.168.99.1 : HTTP error: Failed to connect to 192.168.99.1 port 8333 after 2048 ms: Couldn't connect to server => ping=OK
+[11:32:18] id=5 192.168.99.1:8333 http -> OK
+[11:32:21] id=8 d8560f8cc6a4.sn.mynetname.net:8333 http -> OK | RB1100Dx4 | v7.16 (stable) | 6w1d3h16m52s | cpu=7% | arp=2743
+[11:32:23] id=15 cc210c93b0ab.sn.mynetname.net:8333 http -> OK | RB750Gr3 | v7.19.4 (stable) | 3w3d15h42m58s | cpu=13% | arp=289
+[11:32:28] id=16 578204f18f4e.sn.mynetname.net:8333 http -> OK | RB2011UiAS | v7.19.4 (stable) | 16h36m31s | cpu=100% | arp=54
+[11:32:29] id=17 179.27.94.154:8333 http -> OK | L009UiGS-2HaxD | v7.19.4 (stable) | 17h26m11s | cpu=8% | arp=172
+[11:32:29] id=19 de350d823c03.sn.mynetname.net:8333 http -> OK | RB951G-2HnD | v7.19.4 (stable) | 16h19m42s | cpu=4% | arp=0
+[11:32:31] REST FAIL id=20 host=192.168.99.1 : HTTP error: Failed to connect to 192.168.99.1 port 8333 after 2034 ms: Couldn't connect to server => ping=OK
+[11:32:32] id=20 192.168.99.1:8333 http -> OK
+[11:32:34] id=21 d8560f8cc6a4.sn.mynetname.net:8333 http -> OK | RB1100Dx4 | v7.16 (stable) | 6w1d3h17m6s | cpu=3% | arp=2743
+[11:32:37] REST FAIL id=22 host=2f7a0121f1af.sn.mynetname.net : HTTP error: Failed to connect to 2f7a0121f1af.sn.mynetname.net port 8333 after 2045 ms: Couldn't connect to server => ping=OK
+[11:32:37] id=22 2f7a0121f1af.sn.mynetname.net:8333 http -> OK
+[11:32:38] id=23 cc210c93b0ab.sn.mynetname.net:8333 http -> OK | RB750Gr3 | v7.19.4 (stable) | 3w3d15h43m14s | cpu=0% | arp=289
+[11:32:42] id=24 578204f18f4e.sn.mynetname.net:8333 http -> OK | RB2011UiAS | v7.19.4 (stable) | 16h36m46s | cpu=11% | arp=54
+[11:32:43] id=25 179.27.94.154:8333 http -> OK | L009UiGS-2HaxD | v7.19.4 (stable) | 17h26m25s | cpu=15% | arp=172
+[11:32:45] id=26 e7e70ec8193a.sn.mynetname.net:8333 http -> OK | RB3011UiAS | v7.19 (stable) | 12w4d20h39m36s | cpu=7% | arp=360
+[11:32:45] === Fin: total=14 OK=14 FAIL=0 ===
+[11:34:44] === Inicio verificación REST ===
+[11:34:45] id=1 de350d823c03.sn.mynetname.net:8333 http -> OK | RB951G-2HnD | v7.19.4 (stable) | 16h21m57s | cpu=6% | arp=0
+[11:34:47] REST FAIL id=5 host=192.168.99.1 : HTTP error: Failed to connect to 192.168.99.1 port 8333 after 2048 ms: Couldn't connect to server => ping=OK
+[11:34:47] id=5 192.168.99.1:8333 http -> OK
+[11:34:50] id=8 d8560f8cc6a4.sn.mynetname.net:8333 http -> OK | RB1100Dx4 | v7.16 (stable) | 6w1d3h19m21s | cpu=5% | arp=2743
+[11:34:52] id=15 cc210c93b0ab.sn.mynetname.net:8333 http -> OK | RB750Gr3 | v7.19.4 (stable) | 3w3d15h45m28s | cpu=0% | arp=289
+[11:34:56] id=16 578204f18f4e.sn.mynetname.net:8333 http -> OK | RB2011UiAS | v7.19.4 (stable) | 16h39m | cpu=5% | arp=54
+[11:34:57] id=17 179.27.94.154:8333 http -> OK | L009UiGS-2HaxD | v7.19.4 (stable) | 17h28m39s | cpu=6% | arp=172
+[11:34:58] id=19 de350d823c03.sn.mynetname.net:8333 http -> OK | RB951G-2HnD | v7.19.4 (stable) | 16h22m10s | cpu=2% | arp=0
+[11:35:00] REST FAIL id=20 host=192.168.99.1 : HTTP error: Failed to connect to 192.168.99.1 port 8333 after 2047 ms: Couldn't connect to server => ping=OK
+[11:35:00] id=20 192.168.99.1:8333 http -> OK
+[11:35:03] id=21 d8560f8cc6a4.sn.mynetname.net:8333 http -> OK | RB1100Dx4 | v7.16 (stable) | 6w1d3h19m34s | cpu=8% | arp=2743
+[11:35:05] REST FAIL id=22 host=2f7a0121f1af.sn.mynetname.net : HTTP error: Failed to connect to 2f7a0121f1af.sn.mynetname.net port 8333 after 2053 ms: Couldn't connect to server => ping=OK
+[11:35:05] id=22 2f7a0121f1af.sn.mynetname.net:8333 http -> OK
+[11:35:07] id=23 cc210c93b0ab.sn.mynetname.net:8333 http -> OK | RB750Gr3 | v7.19.4 (stable) | 3w3d15h45m42s | cpu=0% | arp=289
+[11:35:11] id=24 578204f18f4e.sn.mynetname.net:8333 http -> OK | RB2011UiAS | v7.19.4 (stable) | 16h39m15s | cpu=10% | arp=54
+[11:35:11] id=25 179.27.94.154:8333 http -> OK | L009UiGS-2HaxD | v7.19.4 (stable) | 17h28m54s | cpu=7% | arp=172
+[11:35:13] id=26 e7e70ec8193a.sn.mynetname.net:8333 http -> OK | RB3011UiAS | v7.19 (stable) | 12w4d20h42m4s | cpu=24% | arp=360
+[11:35:13] === Fin: total=14 OK=14 FAIL=0 ===
+[12:56:31] === Inicio verificación REST ===
+[12:56:32] id=1 de350d823c03.sn.mynetname.net:8333 http -> OK | RB951G-2HnD | v7.19.4 (stable) | 17h43m45s | cpu=12% | arp=0
+[12:56:35] REST FAIL id=5 host=192.168.99.1 : HTTP error: Failed to connect to 192.168.99.1 port 8333 after 2042 ms: Couldn't connect to server => ping=OK
+[12:56:35] id=5 192.168.99.1:8333 http -> OK
+[12:56:38] id=8 d8560f8cc6a4.sn.mynetname.net:8333 http -> OK | RB1100Dx4 | v7.16 (stable) | 6w1d4h41m9s | cpu=3% | arp=2743
+[12:56:40] id=15 cc210c93b0ab.sn.mynetname.net:8333 http -> OK | RB750Gr3 | v7.19.4 (stable) | 3w3d17h7m15s | cpu=1% | arp=289
+[12:56:44] id=16 578204f18f4e.sn.mynetname.net:8333 http -> OK | RB2011UiAS | v7.19.4 (stable) | 18h47s | cpu=9% | arp=59
+[12:56:45] id=17 179.27.94.154:8333 http -> OK | L009UiGS-2HaxD | v7.19.4 (stable) | 18h50m27s | cpu=10% | arp=172
+[12:56:45] id=19 de350d823c03.sn.mynetname.net:8333 http -> OK | RB951G-2HnD | v7.19.4 (stable) | 17h43m58s | cpu=3% | arp=0
+[12:56:48] REST FAIL id=20 host=192.168.99.1 : HTTP error: Failed to connect to 192.168.99.1 port 8333 after 2061 ms: Couldn't connect to server => ping=OK
+[12:56:48] id=20 192.168.99.1:8333 http -> OK
+[12:56:51] id=21 d8560f8cc6a4.sn.mynetname.net:8333 http -> OK | RB1100Dx4 | v7.16 (stable) | 6w1d4h41m22s | cpu=6% | arp=2743
+[12:56:53] REST FAIL id=22 host=2f7a0121f1af.sn.mynetname.net : HTTP error: Failed to connect to 2f7a0121f1af.sn.mynetname.net port 8333 after 2056 ms: Couldn't connect to server => ping=OK
+[12:56:53] id=22 2f7a0121f1af.sn.mynetname.net:8333 http -> OK
+[12:56:55] id=23 cc210c93b0ab.sn.mynetname.net:8333 http -> OK | RB750Gr3 | v7.19.4 (stable) | 3w3d17h7m30s | cpu=0% | arp=289
+[12:56:59] id=24 578204f18f4e.sn.mynetname.net:8333 http -> OK | RB2011UiAS | v7.19.4 (stable) | 18h1m2s | cpu=9% | arp=59
+[12:57:00] id=25 179.27.94.154:8333 http -> OK | L009UiGS-2HaxD | v7.19.4 (stable) | 18h50m42s | cpu=17% | arp=172
+[12:57:01] id=26 e7e70ec8193a.sn.mynetname.net:8333 http -> OK | RB3011UiAS | v7.19 (stable) | 12w4d22h3m52s | cpu=7% | arp=363
+[12:57:01] id=28 hg409q3edw7.sn.mynetname.net:8333 http -> OK | L009UiGS-2HaxD | v7.20beta8 (testing) | 17h37m42s | cpu=0% | arp=46
+[12:57:02] === Fin: total=15 OK=15 FAIL=0 ===

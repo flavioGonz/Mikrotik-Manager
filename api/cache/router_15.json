@@ -1,0 +1,33 @@
+{
+    "model": "RB750Gr3",
+    "uptime": "3w3d17h7m15s",
+    "cpu": 1,
+    "arp_count": 289,
+    "events": [
+        {
+            "time": "2025-08-29 12:28:35",
+            "topics": "system,error,critical",
+            "message": "login failure for user admin from 194.50.16.198 via api"
+        },
+        {
+            "time": "2025-08-29 12:28:35",
+            "topics": "system,error,critical",
+            "message": "login failure for user admin from 194.50.16.198 via api"
+        },
+        {
+            "time": "2025-08-29 12:28:36",
+            "topics": "system,error,critical",
+            "message": "login failure for user admin from 194.50.16.198 via api"
+        },
+        {
+            "time": "2025-08-29 12:28:37",
+            "topics": "system,error,critical",
+            "message": "login failure for user admin from 194.50.16.198 via api"
+        },
+        {
+            "time": "2025-08-29 12:53:58",
+            "topics": "ipsec,error",
+            "message": "phase1 negotiation failed due to time up 190.133.66.144[4500]<=>193.163.125.75[21221] 4ca6a1be214ab02d:ec269f8c89aa6ff1"
+        }
+    ]
+}

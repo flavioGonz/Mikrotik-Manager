@@ -1,0 +1,33 @@
+{
+    "model": "RB3011UiAS",
+    "uptime": "12w4d23h26m12s",
+    "cpu": 12,
+    "arp_count": 363,
+    "events": [
+        {
+            "time": "2025-08-29 13:15:03",
+            "topics": "system,error,critical",
+            "message": "login failure for user admin from 141.98.11.89 via api"
+        },
+        {
+            "time": "2025-08-29 13:15:03",
+            "topics": "system,error,critical",
+            "message": "login failure for user admin from 141.98.11.89 via api"
+        },
+        {
+            "time": "2025-08-29 13:15:04",
+            "topics": "system,error,critical",
+            "message": "login failure for user admin from 141.98.11.89 via api"
+        },
+        {
+            "time": "2025-08-29 13:15:04",
+            "topics": "system,error,critical",
+            "message": "login failure for user admin from 141.98.11.89 via api"
+        },
+        {
+            "time": "2025-08-29 13:15:05",
+            "topics": "system,error,critical",
+            "message": "login failure for user admin from 141.98.11.89 via api"
+        }
+    ]
+}

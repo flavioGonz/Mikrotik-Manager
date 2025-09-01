@@ -1,0 +1,33 @@
+{
+    "model": "L009UiGS-2HaxD",
+    "uptime": "19h33m38s",
+    "cpu": 0,
+    "arp_count": 46,
+    "events": [
+        {
+            "time": "2025-08-29 13:17:52",
+            "topics": "system,error,critical",
+            "message": "login failure for user admin from 141.98.11.89 via api"
+        },
+        {
+            "time": "2025-08-29 13:17:52",
+            "topics": "system,error,critical",
+            "message": "login failure for user admin from 141.98.11.89 via api"
+        },
+        {
+            "time": "2025-08-29 13:17:53",
+            "topics": "system,error,critical",
+            "message": "login failure for user admin from 141.98.11.89 via api"
+        },
+        {
+            "time": "2025-08-29 13:17:53",
+            "topics": "system,error,critical",
+            "message": "login failure for user admin from 141.98.11.89 via api"
+        },
+        {
+            "time": "2025-08-29 13:17:54",
+            "topics": "system,error,critical",
+            "message": "login failure for user admin from 141.98.11.89 via api"
+        }
+    ]
+}

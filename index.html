@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>MikroTik Manager</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script defer src="map.js"></script>
+</head>
+<body>
+
+  <!-- MAPA -->
+  <div id="map"></div>
+
+<!-- BÚSQUEDA -->
+<div id="top-ui-container">
+  <!-- Buscador de routers -->
+  <input id="router-search-input" placeholder="Buscar MikroTik por nombre o IP">
+  <div id="router-search-results"></div>
+</div>
+<button id="search-btn" class="floating-btn">
+  <img src="https://img.icons8.com/ios-filled/24/ffffff/search.png"/>
+</button>
+
+<!-- Buscador de direcciones (siempre visible) -->
+<div id="address-search-container">
+  <input id="address-search-input" placeholder="Buscar dirección...">
+  <div id="address-search-results"></div>
+</div>
+
+
+  <!-- BOTONES FLOTANTES -->
+  <div class="floating-buttons">
+    <button id="theme-btn"><img src="https://img.icons8.com/ios-filled/24/ffffff/sun.png"/></button>
+    <button id="settings-btn"><img src="https://img.icons8.com/ios-filled/24/ffffff/settings.png"/></button>
+    <button id="lock-btn" class="locked"><img src="https://img.icons8.com/ios-filled/24/ffffff/lock.png"/></button>
+    <button id="check-all-btn" title="Verificar todos"><img src="https://img.icons8.com/ios-filled/24/ffffff/synchronize.png"/></button>
+  </div>
+
+  <!-- BACKDROP -->
+  <div id="modal-backdrop" class="hidden"></div>
+
+  <!-- MODAL AGREGAR/EDITAR ROUTER -->
+  <div id="router-modal" class="hidden modal">
+    <h2 id="modal-title">Agregar Nuevo MikroTik</h2>
+    <form id="router-form">
+      <input type="hidden" id="router-id">
+      <input type="hidden" id="router-lat">
+      <input type="hidden" id="router-lng">
+
+      <div class="form-group">
+        <label for="router-name">Nombre</label>
+        <input type="text" id="router-name" required>
+      </div>
+      <div class="form-group">
+        <label for="router-ip">IP / Host</label>
+        <input type="text" id="router-ip" required>
+      </div>
+      <div class="form-group">
+        <label for="router-user">Usuario API</label>
+        <input type="text" id="router-user" required>
+      </div>
+      <div class="form-group">
+        <label for="router-pass">Contraseña API</label>
+        <input type="password" id="router-pass" required autocomplete="current-password">
+      </div>
+      <div class="form-group">
+        <label for="router-port">Puerto REST (ej. 8333)</label>
+        <input type="number" id="router-port" value="8333">
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" id="save-btn">Guardar</button>
+        <button type="button" class="cancel-btn">Cancelar</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- MODAL CONFIGURACIÓN -->
+  <div id="settings-modal" class="hidden settings-modal">
+    <div class="settings-header">
+      <h2>⚙ Configuración</h2>
+      <button class="cancel-btn">&times;</button>
+    </div>
+
+    <!-- Tabs -->
+<div class="tabs">
+  <ul class="tab-list">
+    <li class="tab-btn active" data-target="#general-panel">General</li>
+    <li class="tab-btn" data-target="#backup-panel">Backup</li>
+    <li class="tab-btn" data-target="#logs-panel">Logs</li>
+    <li class="tab-btn" data-target="#routers-panel">Routers</li>
+  </ul>
+</div>
+
+    <!-- Panels -->
+    <div class="tab-content">
+      <!-- General -->
+      <div id="general-panel" class="tab-panel active">
+        <h3>Estado del Cron</h3>
+        <div id="cron-status"></div>
+
+        <h3>Vista por defecto del mapa</h3>
+        <div class="form-group">
+          <label>Latitud</label>
+          <input type="text" id="map-lat-input">
+        </div>
+        <div class="form-group">
+          <label>Longitud</label>
+          <input type="text" id="map-lng-input">
+        </div>
+        <div class="form-group">
+          <label>Zoom</label>
+          <input type="number" id="map-zoom-input">
+        </div>
+        <div class="form-actions">
+          <button id="get-current-view-btn">Usar vista actual</button>
+          <button id="save-view-btn">Guardar vista</button>
+        </div>
+      </div>
+
+      <!-- Backup -->
+      <div id="backup-panel" class="tab-panel">
+        <h3>Backup de Routers</h3>
+        <div class="form-actions">
+          <button id="export-btn-global">Exportar Routers</button>
+          <button id="import-btn-global">Importar Routers</button>
+        </div>
+        <!-- Barra de progreso -->
+        <div class="progress-container" style="display:none; margin-top:10px;">
+          <div id="import-progress" class="progress-bar">0%</div>
+        </div>
+      </div>
+
+    <!-- Logs -->
+      <div id="logs-panel" class="tab-panel">
+        <h3>Logs del Sistema</h3>
+        <div class="logs-container">
+          <select id="logs-select">
+            <option value="cron">Logs del Cron</option>
+            <option value="routers">Acciones de Routers</option>
+            <option value="audit">Auditoría</option>
+          </select>
+          <pre id="logs-output">Selecciona una opción para ver logs...</pre>
+        </div>
+      </div>
+
+      <!-- Routers -->
+      <div id="routers-panel" class="tab-panel">
+        <h3>Lista de Routers</h3>
+        <table id="routers-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>IP/Host</th>
+              <th>Puerto</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Se llena dinámicamente -->
+          </tbody>
+        </table>
+      </div>
+    </div> <!-- cierre de .tab-content -->
+  </div>   <!-- cierre de #settings-modal -->
+
+
+</body>
+</html>

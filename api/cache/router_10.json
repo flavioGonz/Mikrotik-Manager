@@ -1,0 +1,33 @@
+{
+    "model": "RB2011UiAS",
+    "uptime": "2h32m46s",
+    "cpu": 6,
+    "arp_count": 44,
+    "events": [
+        {
+            "time": "2025-08-29 00:13:12",
+            "topics": "system,error,critical",
+            "message": "login failure for user KTv6 from 194.50.16.198 via api"
+        },
+        {
+            "time": "2025-08-29 00:13:14",
+            "topics": "system,error,critical",
+            "message": "login failure for user W6FP from 194.50.16.198 via api"
+        },
+        {
+            "time": "2025-08-29 00:13:15",
+            "topics": "system,error,critical",
+            "message": "login failure for user CsGZ from 194.50.16.198 via api"
+        },
+        {
+            "time": "2025-08-29 00:13:17",
+            "topics": "system,error,critical",
+            "message": "login failure for user y8l3 from 194.50.16.198 via api"
+        },
+        {
+            "time": "2025-08-29 00:23:26",
+            "topics": "ipsec,error",
+            "message": "phase1 negotiation failed due to time up 190.134.130.19[500]<=>147.182.190.56[500] 36b0df940a145f8e:baa727eb6bd92f8c"
+        }
+    ]
+}

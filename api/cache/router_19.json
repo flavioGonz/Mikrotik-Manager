@@ -1,0 +1,33 @@
+{
+    "model": "RB951G-2HnD",
+    "uptime": "17h43m58s",
+    "cpu": 3,
+    "arp_count": 0,
+    "events": [
+        {
+            "time": "2025-08-29 12:30:00",
+            "topics": "script,error,debug",
+            "message": "(scheduler:schedule1) bad command name ddns (line 1 column 1)"
+        },
+        {
+            "time": "2025-08-29 12:40:00",
+            "topics": "script,error",
+            "message": "executing script from scheduler (schedule1) failed, please check it manually"
+        },
+        {
+            "time": "2025-08-29 12:40:00",
+            "topics": "script,error,debug",
+            "message": "(scheduler:schedule1) bad command name ddns (line 1 column 1)"
+        },
+        {
+            "time": "2025-08-29 12:50:00",
+            "topics": "script,error",
+            "message": "executing script from scheduler (schedule1) failed, please check it manually"
+        },
+        {
+            "time": "2025-08-29 12:50:00",
+            "topics": "script,error,debug",
+            "message": "(scheduler:schedule1) bad command name ddns (line 1 column 1)"
+        }
+    ]
+}

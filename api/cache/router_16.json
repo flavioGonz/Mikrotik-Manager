@@ -1,0 +1,33 @@
+{
+    "model": "RB2011UiAS",
+    "uptime": "18h47s",
+    "cpu": 9,
+    "arp_count": 59,
+    "events": [
+        {
+            "time": "2025-08-29 15:21:15",
+            "topics": "system,error,critical",
+            "message": "login failure for user cYLL from 194.50.16.198 via api"
+        },
+        {
+            "time": "2025-08-29 15:21:18",
+            "topics": "system,error,critical",
+            "message": "login failure for user sc9N from 194.50.16.198 via api"
+        },
+        {
+            "time": "2025-08-29 15:21:20",
+            "topics": "system,error,critical",
+            "message": "login failure for user rjlS from 194.50.16.198 via api"
+        },
+        {
+            "time": "2025-08-29 15:21:23",
+            "topics": "system,error,critical",
+            "message": "login failure for user NbeG from 194.50.16.198 via api"
+        },
+        {
+            "time": "2025-08-29 15:21:24",
+            "topics": "system,error,critical",
+            "message": "login failure for user EVYg from 194.50.16.198 via api"
+        }
+    ]
+}

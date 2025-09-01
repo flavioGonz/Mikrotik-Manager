@@ -1,0 +1,33 @@
+{
+    "model": "RB2011UiAS",
+    "uptime": "19h23m18s",
+    "cpu": 6,
+    "arp_count": 60,
+    "events": [
+        {
+            "time": "2025-08-29 16:16:50",
+            "topics": "system,error,critical",
+            "message": "login failure for user w34d from 141.98.11.89 via api"
+        },
+        {
+            "time": "2025-08-29 16:16:52",
+            "topics": "system,error,critical",
+            "message": "login failure for user xhqf from 141.98.11.89 via api"
+        },
+        {
+            "time": "2025-08-29 16:16:54",
+            "topics": "system,error,critical",
+            "message": "login failure for user h65H from 141.98.11.89 via api"
+        },
+        {
+            "time": "2025-08-29 16:16:56",
+            "topics": "system,error,critical",
+            "message": "login failure for user nkOl from 141.98.11.89 via api"
+        },
+        {
+            "time": "2025-08-29 16:16:57",
+            "topics": "system,error,critical",
+            "message": "login failure for user l5Ud from 141.98.11.89 via api"
+        }
+    ]
+}

@@ -1,0 +1,33 @@
+{
+    "model": "RB750Gr3",
+    "uptime": "3w3d18h29m58s",
+    "cpu": 2,
+    "arp_count": 289,
+    "events": [
+        {
+            "time": "2025-08-29 13:19:01",
+            "topics": "system,error,critical",
+            "message": "login failure for user admin from 141.98.11.89 via api"
+        },
+        {
+            "time": "2025-08-29 13:19:01",
+            "topics": "system,error,critical",
+            "message": "login failure for user admin from 141.98.11.89 via api"
+        },
+        {
+            "time": "2025-08-29 13:19:02",
+            "topics": "system,error,critical",
+            "message": "login failure for user admin from 141.98.11.89 via api"
+        },
+        {
+            "time": "2025-08-29 13:19:03",
+            "topics": "system,error,critical",
+            "message": "login failure for user admin from 141.98.11.89 via api"
+        },
+        {
+            "time": "2025-08-29 13:44:32",
+            "topics": "system,error,critical",
+            "message": "login failure for user 84uf from 87.121.84.179 via api"
+        }
+    ]
+}

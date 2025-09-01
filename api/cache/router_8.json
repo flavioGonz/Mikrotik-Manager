@@ -1,0 +1,33 @@
+{
+    "model": "RB1100Dx4",
+    "uptime": "6w1d4h41m9s",
+    "cpu": 3,
+    "arp_count": 2743,
+    "events": [
+        {
+            "time": "11:12:42",
+            "topics": "dhcp,warning",
+            "message": "dhcp4 offering lease 10.0.6.50 for F2:EA:96:7A:E5:EF without success"
+        },
+        {
+            "time": "11:39:15",
+            "topics": "dhcp,warning",
+            "message": "Detected conflict by ARP response for 10.0.7.152 from 4A:1E:ED:1B:89:45"
+        },
+        {
+            "time": "12:07:37",
+            "topics": "dhcp,warning",
+            "message": "dhcp4 offering lease 10.0.7.164 for E2:8A:B6:E3:55:5C without success"
+        },
+        {
+            "time": "12:51:08",
+            "topics": "ipsec,error",
+            "message": "phase1 negotiation failed due to time up 190.64.213.162[500]<=>167.94.138.130[5291] 4d65822107fcfd52:c8ae26a24af4bbbd"
+        },
+        {
+            "time": "12:51:21",
+            "topics": "ipsec,error",
+            "message": "phase1 negotiation failed due to time up 190.64.213.162[500]<=>167.94.138.201[35343] 3042c81a30cee615:f1545edc9cdaecda"
+        }
+    ]
+}
