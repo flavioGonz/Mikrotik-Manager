@@ -1,38 +1,51 @@
-# 📘 Documentación Técnica — **MikroTik Manager**
+📘 MikroTik Manager
 
-## 1. Visión General
+Aplicación web desarrollada en PHP + MySQL con frontend en LeafletJS + JavaScript para la gestión y monitoreo de routers MikroTik vía REST API RouterOS.
 
-Aplicación web desarrollada en **PHP + MySQL** con frontend en **LeafletJS + JavaScript** para la **gestión y monitoreo de routers MikroTik** vía  **REST API RouterOS** .
+🚀 Visión General
 
 Objetivos principales:
 
-* Administrar routers (alta, edición, baja).
-* Consultar estado en tiempo real (modelo, uptime, CPU, ARP, logs).
-* Mostrar la ubicación de cada router en un mapa interactivo.
-* Guardar posiciones manuales arrastrando marcadores o clic derecho.
-* Monitoreo programado con cron y generación de logs.
-* Importar/exportar routers en formato JSON.
-* Búsqueda por nombre/IP y búsqueda de direcciones (OpenStreetMap/Nominatim).
-* Panel de configuración con pestañas  **General, Backup, Logs, Routers** .
+Administrar routers (alta, edición, baja).
 
----
+Consultar estado en tiempo real (modelo, uptime, CPU, ARP, logs).
 
-## 2. Arquitectura
+Mostrar la ubicación de cada router en un mapa interactivo.
 
-* **Frontend** : HTML + CSS (custom, dark/light theme) + JavaScript (Leaflet).
-* **Backend** : PHP 8, librería personalizada `ros_rest_client.php` para consumo de REST MikroTik.
-* **Base de datos** : MySQL (tabla principal `routers`).
-* **Infraestructura** : Desplegado en  **XAMPP (Windows)** , con cron configurado vía  *Programador de Tareas* .
-* **Integraciones externas** :
-* OpenStreetMap (Leaflet tiles).
-* Nominatim (geocodificación direcciones).
-* RouterOS REST API (`/rest/system/resource`, `/rest/log`, `/rest/ip/arp`, etc.).
+Guardar posiciones manuales (arrastrando marcadores o clic derecho).
 
----
+Monitoreo programado con cron y generación de logs.
 
-## 3. Estructura de Archivos
+Importar/exportar routers en formato JSON.
 
-<pre class="overflow-visible!" data-start="1714" data-end="2184"><div class="contain-inline-size rounded-2xl relative bg-token-sidebar-surface-primary"><div class="sticky top-9"><div class="absolute end-0 bottom-0 flex h-9 items-center pe-2"><div class="bg-token-bg-elevated-secondary text-token-text-secondary flex items-center gap-4 rounded-sm px-2 font-sans text-xs"></div></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="whitespace-pre!"><span><span>mk/
+Búsqueda por nombre/IP y búsqueda de direcciones (OpenStreetMap/Nominatim).
+
+Panel de configuración con pestañas: General, Backup, Logs, Routers.
+
+🏗️ Arquitectura
+
+Frontend:
+HTML + CSS (dark/light theme) + JavaScript (LeafletJS).
+
+Backend:
+PHP 8 + librería personalizada ros_rest_client.php (consumo REST Mikrotik).
+
+Base de datos:
+MySQL (tabla principal routers).
+
+Infraestructura:
+Desplegado en XAMPP (Windows) con cron vía Programador de Tareas.
+
+Integraciones externas:
+
+OpenStreetMap (Leaflet tiles).
+
+Nominatim (geocodificación direcciones).
+
+RouterOS REST API (/rest/system/resource, /rest/log, /rest/ip/arp, etc.).
+
+📂 Estructura de Archivos
+mk/
  ├── api/
  │    ├── add_router.php
  │    ├── edit_router.php
@@ -53,148 +66,166 @@ Objetivos principales:
  ├── index.html
  ├── map.js
  └── styles.css
-</span></span></code></div></div></pre>
 
----
+🗄️ Base de Datos
 
-## 4. Base de Datos
+Tabla routers:
 
- **Tabla `routers`** :
+Campo	Tipo	Descripción
+id	INT PK AI	Identificador único
+name	VARCHAR(100)	Nombre amigable
+ip_address	VARCHAR(255)	IP o dominio
+api_user	VARCHAR(100)	Usuario API
+api_password	VARCHAR(100)	Contraseña API
+api_port	INT	Puerto REST (ej. 8333)
+api_ssl	TINYINT	0 = http, 1 = https
+lat	DOUBLE	Latitud
+lng	DOUBLE	Longitud
+status	ENUM(OK,FAIL,PENDING)	Estado actual
+model	VARCHAR(100)	Modelo Router
+version	VARCHAR(50)	Versión RouterOS
+uptime	VARCHAR(50)	Tiempo encendido
+cpu_load	INT	Carga CPU
+last_checked	DATETIME	Última verificación
+🔄 Flujo de Trabajo
 
-| Campo            | Tipo                  | Descripción           |
-| ---------------- | --------------------- | ---------------------- |
-| `id`           | INT PK AI             | Identificador único   |
-| `name`         | VARCHAR(100)          | Nombre amigable        |
-| `ip_address`   | VARCHAR(255)          | IP o dominio           |
-| `api_user`     | VARCHAR(100)          | Usuario API            |
-| `api_password` | VARCHAR(100)          | Contraseña API        |
-| `api_port`     | INT                   | Puerto REST (ej. 8333) |
-| `api_ssl`      | TINYINT               | 0 = http, 1 = https    |
-| `lat`          | DOUBLE                | Latitud                |
-| `lng`          | DOUBLE                | Longitud               |
-| `status`       | ENUM(OK,FAIL,PENDING) | Estado                 |
-| `model`        | VARCHAR(100)          | Modelo Router          |
-| `version`      | VARCHAR(50)           | Versión RouterOS      |
-| `uptime`       | VARCHAR(50)           | Tiempo encendido       |
-| `cpu_load`     | INT                   | Carga CPU              |
-| `last_checked` | DATETIME              | Última verificación  |
+Alta de router
 
----
+Modal con clic derecho en mapa o botón “Agregar”.
 
-## 5. Flujo de Trabajo
+Se completan nombre, IP, user, pass, puerto.
 
-### 5.1. Alta de router
+Inserción vía add_router.php.
 
-* Se abre modal con clic derecho en mapa o botón “Agregar”.
-* Se completan  **nombre, IP, user, pass, puerto** .
-* Se guardan **lat/lng** de la posición clickeada.
-* Inserción vía `add_router.php`.
+Edición
 
-### 5.2. Edición
+Popup → botón “Editar”.
 
-* Desde popup del marcador → botón “Editar”.
-* Se actualizan campos en `edit_router.php`.
+Actualización vía edit_router.php.
 
-### 5.3. Eliminación
+Eliminación
 
-* Desde popup → botón “Eliminar”.
-* Se elimina con `delete_router.php`.
+Popup → botón “Eliminar”.
 
-### 5.4. Actualización de estado
+delete_router.php.
 
-* Automática: cada 5 min con `cron/check_status.php`.
-* Manual: botón popup “🔄” → `check_single_router.php`.
-* Manual global: botón flotante “Verificar todos ahora”.
+Actualización de estado
 
-### 5.5. Posicionamiento
+Automática: cada 5 min con cron/check_status.php.
 
-* Clic derecho → abre modal con coordenadas de clic.
-* Arrastre marcador → `update_location.php`.
+Manual: botón “🔄” en popup (check_single_router.php).
 
----
+Global: botón “Verificar todos ahora”.
 
-## 6. Cron (check_status.php)
+Posicionamiento
 
-* Corre cada 5 minutos vía Programador de Tareas:
-  <pre class="overflow-visible!" data-start="3964" data-end="4040"><div class="contain-inline-size rounded-2xl relative bg-token-sidebar-surface-primary"><div class="sticky top-9"><div class="absolute end-0 bottom-0 flex h-9 items-center pe-2"><div class="bg-token-bg-elevated-secondary text-token-text-secondary flex items-center gap-4 rounded-sm px-2 font-sans text-xs"></div></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="whitespace-pre!"><span><span>C</span><span>:</span><span>\</span><span>xampp</span><span>\</span><span>php</span><span>\</span><span>php</span><span>.</span><span>exe</span><span></span><span>-</span><span>f</span><span></span><span>C</span><span>:</span><span>\</span><span>xampp</span><span>\</span><span>htdocs</span><span>\</span><span>mk</span><span>\</span><span>cron</span><span>\</span><span>check_status</span><span>.</span><span>php</span><span>
-  </span></span></code></div></div></pre>
-* Acciones:
-  * Recorre todos los routers de la DB.
-  * Llama a `/system/resource`, `/system/routerboard`, `/log`, `/ip/arp`.
-  * Guarda estado en DB y JSON (`api/cache/router_ID.json`).
-  * Filtra logs solo en  **error, critical, warning** .
-  * Escribe archivo de log en `cron/logs/cron-rest-YYYY-MM-DD.log`.
+Clic derecho → modal con coordenadas.
 
----
+Arrastre marcador → update_location.php.
 
-## 7. Frontend (map.js + Leaflet)
+⏲️ Cron — check_status.php
 
-### Funciones principales:
+Configurado cada 5 minutos en Windows:
 
-* **createMarker(router)** : crea marcador en mapa.
-* **updateRouterLocation()** : guarda nuevas coordenadas al arrastrar.
-* **getRouterDetailsCached()** : lee JSON de cache y arma tooltip.
-* **buildTooltipHTML()** : muestra modelo, uptime, CPU, ARP, últimos eventos.
-* **fetchAndDrawRouters()** : sincroniza DB ↔ mapa.
-* **checkRouterNow()** : verificación individual.
-* **deleteRouter()** : eliminación.
-* **searchInput** : búsqueda de routers por nombre/IP.
-* **addressInput** : búsqueda de direcciones OSM.
-* **renderRoutersTable()** : rellena tabla en pestaña Routers.
+C:\xampp\php\php.exe -f C:\xampp\htdocs\mk\cron\check_status.php
 
-### Botones flotantes:
 
-* 🌙  **theme-btn** : alterna tema.
-* ⚙  **settings-btn** : abre modal configuración.
-* 🔒  **lock-btn** : activa/desactiva arrastre de marcadores.
-* 🔄  **check-all-btn** : verifica todos los routers.
+Acciones:
 
----
+Recorre todos los routers en DB.
 
-## 8. Backend
+Llama a /system/resource, /system/routerboard, /log, /ip/arp.
 
-### Archivos clave:
+Actualiza DB y genera JSON cache en api/cache/router_ID.json.
 
-* **add_router.php / edit_router.php** : guardan datos de router (con puerto REST).
-* **delete_router.php** : elimina router (maneja error si no existe).
-* **update_location.php** : guarda lat/lng.
-* **get_router_details.php** : devuelve JSON con cache de router.
-* **heartbeat.php** : notifica cambios para refrescar mapa en vivo.
-* **trigger_action.php** : dispara acciones globales (ej: FORCE_CHECK_ALL).
-* **ros_rest_client.php** : wrapper para consultas REST a RouterOS.
+Filtra logs en error, critical, warning.
 
----
+Escribe log diario en cron/logs/cron-rest-YYYY-MM-DD.log.
 
-## 9. Panel de Configuración (settings-modal)
+🖥️ Frontend (map.js + Leaflet)
 
-* **General** : cron + vista mapa.
-* **Backup** : importar/exportar routers con barra de progreso.
-* **Logs** : selector (cron, routers, auditoría) con fetch dinámico.
-* **Routers** : tabla HTML con listado de routers (id, nombre, ip, puerto, estado).
+Funciones principales:
 
----
+createMarker(router) → crea marcador en mapa.
 
-## 10. Mejoras Pendientes
+updateRouterLocation() → guarda nuevas coordenadas.
 
-* [ ] Sincronizar correctamente posición al agregar router con clic derecho (bug de lng=-55).
-* [ ] Mejorar validaciones (ej. IP/host válidos).
-* [ ] Cifrar `api_password` en DB.
-* [ ] Paginación/scroll infinito para tabla de routers.
-* [ ] Logs de auditoría: registrar acciones de usuario (alta, baja, mover).
-* [ ] Migrar cron a **systemd** o Docker en Linux (si se despliega fuera de Windows).
-* [ ] Optimizar tooltips para que muestren más métricas (RAM, interfaces activas).
+getRouterDetailsCached() → lee JSON cache y arma tooltip.
 
----
+buildTooltipHTML() → modelo, uptime, CPU, ARP, eventos.
 
-## 11. Notas finales
+fetchAndDrawRouters() → sincroniza DB ↔ mapa.
 
-* La aplicación ya es funcional: se pueden agregar, editar, eliminar y monitorear routers con  **REST MikroTik** .
-* Todos los datos clave se guardan en **MySQL** y el estado en **cache JSON** para tooltips rápidos.
-* Se soportan **import/export** de routers en JSON.
-* Arquitectura modular: cualquier dev puede ampliar backend en `api/` o nuevas pestañas en frontend.
+checkRouterNow() → verificación individual.
 
----
+deleteRouter() → elimina router.
 
-👉 Con esta documentación, otro profesional tendrá toda la  **foto completa del proyecto** , sus módulos, qué hace cada archivo y dónde están los puntos de mejora.
+searchInput → búsqueda por nombre/IP.
 
-¿Querés que además prepare un **diagrama visual (mapa de arquitectura)** en PNG para incluir en esta documentación?
+addressInput → búsqueda de direcciones OSM.
+
+renderRoutersTable() → tabla de routers en pestaña Routers.
+
+Botones flotantes:
+
+🌙 theme-btn → alternar tema.
+
+⚙ settings-btn → abrir modal configuración.
+
+🔒 lock-btn → activar/desactivar arrastre.
+
+🔄 check-all-btn → verificar todos los routers.
+
+🔧 Backend
+
+Archivos clave:
+
+add_router.php, edit_router.php → CRUD de routers.
+
+delete_router.php → elimina router.
+
+update_location.php → guarda coordenadas.
+
+get_router_details.php → devuelve JSON cache.
+
+heartbeat.php → refresco en vivo del mapa.
+
+trigger_action.php → acciones globales (ej: FORCE_CHECK_ALL).
+
+ros_rest_client.php → wrapper REST RouterOS.
+
+⚙️ Panel de Configuración
+
+General: parámetros de cron + vista mapa.
+
+Backup: importar/exportar routers con progreso.
+
+Logs: selector dinámico (cron, routers, auditoría).
+
+Routers: tabla HTML con listado y estado.
+
+📌 Mejoras Pendientes
+
+ Sincronizar posición al agregar router con clic derecho (bug lng=-55).
+
+ Mejorar validaciones (IP/host).
+
+ Cifrar api_password en DB.
+
+ Paginación/scroll infinito en tabla de routers.
+
+ Auditoría: registrar acciones de usuario.
+
+ Migrar cron a systemd o Docker en Linux.
+
+ Tooltips más completos (RAM, interfaces activas).
+
+✅ Estado actual
+
+La aplicación es funcional: agregar, editar, eliminar y monitorear routers Mikrotik vía REST.
+
+Datos en MySQL y estado en JSON cache.
+
+Soporta import/export en JSON.
+
+Arquitectura modular: fácil extender tanto backend (api/) como frontend (pestañas, UI).
